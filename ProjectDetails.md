@@ -1,4 +1,6 @@
-# Getting starting - 28 Sep 2025
+# Project Details
+
+### Getting starting - 28 Sep 2025
 
 1. Install pygame
 2. Create main file alien_invasion.py
