@@ -1,4 +1,6 @@
-# Project Details
+# Step 01
+
+## 29 Sep 2025
 
 ### Getting started - 28 Sep 2025
 
