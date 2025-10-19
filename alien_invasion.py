@@ -13,6 +13,9 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+    eg. asurf = pygame.image.load(os.path.join('data', 'bla.png'))
+
+
     # flip() the display to put your work on screen
     pygame.display.flip()
 
