@@ -1,8 +1,13 @@
 import pygame
 
+SCREEN_WIDTH = 1280
+
+IMAGE_WIDTH = 100
+
+
 # pygame setup
 pygame.init()
-screen = pygame.display.set_mode((1280, 720))
+screen = pygame.display.set_mode((SCREEN_WIDTH, 720))
 clock = pygame.time.Clock()
 running = True
 
@@ -13,7 +18,21 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    eg. asurf = pygame.image.load(os.path.join('data', 'bla.png'))
+    # Load image on the screen
+    image = pygame.image.load("Images/Spaceship5.png")
+    
+    # Resize any image
+    image = pygame.transform.scale(image, (IMAGE_WIDTH, 100))
+    
+    # Get coordinates of image
+    image_rect = image.get_rect()
+    screen_rect = screen.get_rect()
+    
+    # Align image and screen together
+    image_rect.bottom = screen_rect.bottom
+    image_rect.centerx = screen_rect.centerx
+
+    screen.blit(image, image_rect)
 
 
     # flip() the display to put your work on screen
