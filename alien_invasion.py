@@ -1,13 +1,13 @@
 import pygame
 
 SCREEN_WIDTH = 1280
-
+SCREEN_HEIGHT = 720
 IMAGE_WIDTH = 100
-
+IMAGE_HEIGHT = 100
 
 # pygame setup
 pygame.init()
-screen = pygame.display.set_mode((SCREEN_WIDTH, 720))
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 clock = pygame.time.Clock()
 running = True
 
@@ -22,7 +22,7 @@ while running:
     image = pygame.image.load("Images/Spaceship5.png")
     
     # Resize any image
-    image = pygame.transform.scale(image, (IMAGE_WIDTH, 100))
+    image = pygame.transform.scale(image, (IMAGE_WIDTH, IMAGE_HEIGHT))
     
     # Get coordinates of image
     image_rect = image.get_rect()
