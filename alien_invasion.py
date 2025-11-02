@@ -1,5 +1,6 @@
 import pygame
 
+# TODO: Declare constant variables
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
 IMAGE_WIDTH = 100
@@ -19,6 +20,7 @@ while running:
             running = False
 
     # Load image on the screen
+    # FIXME: Find background free files for this project.
     image = pygame.image.load("Images/Spaceship5.png")
     
     # Resize any image
