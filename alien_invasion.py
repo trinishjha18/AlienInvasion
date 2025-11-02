@@ -1,45 +1,55 @@
 import pygame
+from Game_Code.game_configs import GameConfigs
+class AlienInvasion:
+    def __init__(self):
+        # pygame setup
+        pygame.init()
 
-# TODO: Declare constant variables
-SCREEN_WIDTH = 1280
-SCREEN_HEIGHT = 720
-IMAGE_WIDTH = 100
-IMAGE_HEIGHT = 100
+    def run(self):
+        screen = pygame.display.set_mode((GameConfigs.SCREEN_WIDTH.value, GameConfigs.SCREEN_HEIGHT.value))
+        clock = pygame.time.Clock()
+        running = True
+        background_image = pygame.image.load("Images/Background2.png").convert()
+        background_image = pygame.transform.scale(background_image, (GameConfigs.SCREEN_WIDTH.value, GameConfigs.SCREEN_HEIGHT.value))
 
-# pygame setup
-pygame.init()
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-clock = pygame.time.Clock()
-running = True
+        while running:
+            # poll for events
+            # pygame.QUIT event means the user clicked X to close your window
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
 
-while running:
-    # poll for events
-    # pygame.QUIT event means the user clicked X to close your window
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+            # Blit the background image
+            screen.blit(background_image, (GameConfigs.SCREEN_X.value, GameConfigs.SCREEN_Y.value))
 
-    # Load image on the screen
-    # FIXME: Find background free files for this project.
-    image = pygame.image.load("Images/Spaceship5.png")
-    
-    # Resize any image
-    image = pygame.transform.scale(image, (IMAGE_WIDTH, IMAGE_HEIGHT))
-    
-    # Get coordinates of image
-    image_rect = image.get_rect()
-    screen_rect = screen.get_rect()
-    
-    # Align image and screen together
-    image_rect.bottom = screen_rect.bottom
-    image_rect.centerx = screen_rect.centerx
+            # Load image on the screen
+            image = pygame.image.load("Images/Spaceship5.png")
+            
+            # Resize any image
+            image = pygame.transform.scale(image, (GameConfigs.IMAGE_WIDTH.value, GameConfigs.IMAGE_HEIGHT.value))
+            
+            # Get coordinates of image
+            image_rect = image.get_rect()
+            screen_rect = screen.get_rect()
+            
+            # Align image and screen together
+            image_rect.bottom = screen_rect.bottom
+            image_rect.centerx = screen_rect.centerx
 
-    screen.blit(image, image_rect)
+            screen.blit(image, image_rect)
 
 
-    # flip() the display to put your work on screen
-    pygame.display.flip()
+            # flip() the display to put your work on screen
+            pygame.display.flip()
 
-    clock.tick(60)  # limits FPS to 60
+            clock.tick(GameConfigs.FPS.value)  # limits FPS to 60
 
-pygame.quit()
+        pygame.quit()
+
+
+def main():
+    alien_invasion = AlienInvasion()
+    alien_invasion.run()
+
+if __name__ == "__main__":
+    main()
