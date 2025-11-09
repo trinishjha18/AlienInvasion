@@ -12,3 +12,4 @@ class GameSettings(IntEnum):
     IMAGE_WIDTH = 100
     IMAGE_HEIGHT = 100
     FPS = 60
+    SHIP_SPEED = 5
