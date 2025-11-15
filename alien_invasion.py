@@ -1,5 +1,8 @@
 import pygame
 from Game_Code.game_configs import GameConfigs
+from Game_Code.ship import *
+
+
 class AlienInvasion:
     def __init__(self):
         # pygame setup
@@ -20,23 +23,10 @@ class AlienInvasion:
                     running = False
 
             # Blit the background image
-            screen.blit(background_image, (GameConfigs.SCREEN_X.value, GameConfigs.SCREEN_Y.value))
+            screen.blit(background_image, (GameConfigs.SCREEN_WIDTH_BACKGROUND.value, GameConfigs.SCREEN_HEIGHT_BACKGROUND.value))
 
-            # Load image on the screen
-            image = pygame.image.load("Images/Spaceship5.png")
-            
-            # Resize any image
-            image = pygame.transform.scale(image, (GameConfigs.IMAGE_WIDTH.value, GameConfigs.IMAGE_HEIGHT.value))
-            
-            # Get coordinates of image
-            image_rect = image.get_rect()
-            screen_rect = screen.get_rect()
-            
-            # Align image and screen together
-            image_rect.bottom = screen_rect.bottom
-            image_rect.centerx = screen_rect.centerx
-
-            screen.blit(image, image_rect)
+            ship = Ship(screen)
+            ship.blitme()
 
 
             # flip() the display to put your work on screen
