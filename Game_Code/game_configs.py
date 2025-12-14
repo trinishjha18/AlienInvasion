@@ -8,6 +8,7 @@ class GameConfigs(IntEnum):
     FPS = 60
     SCREEN_WIDTH_BACKGROUND = 0
     SCREEN_HEIGHT_BACKGROUND = 0
+    SHIP_SPEED = 5
 
 
 class Colors(Enum):
