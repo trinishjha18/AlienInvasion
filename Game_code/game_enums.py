@@ -1,6 +1,5 @@
 from enum import Enum, IntEnum
 
-
 class Colors(Enum):
     BLACK = (0, 0, 0)
     WHITE = (255, 255, 255)
