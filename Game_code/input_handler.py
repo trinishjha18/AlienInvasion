@@ -8,16 +8,13 @@ class InputHandler:
         self.moving_up = False
         self.moving_down = False
         
-    def process_events(self):
+    def process_events(self, events):
         # pygame.QUIT event means the user clicked X to close your window
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                return False
-            elif event.type == pygame.KEYDOWN:
+        for event in events:
+            if event.type == pygame.KEYDOWN:
                 self._key_down(event.key)
             elif event.type == pygame.KEYUP:
                 self._key_up(event.key)
-        return True
     
     def _key_down(self, key):
         if key == pygame.K_RIGHT:
