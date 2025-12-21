@@ -12,5 +12,5 @@ class GameConfigs(IntEnum):
 
 
 class Colors(Enum):
-    BLACK = ((255, 215, 0))
+    BLACK = (255, 215, 0)
     WHITE  = (255, 255, 255)
