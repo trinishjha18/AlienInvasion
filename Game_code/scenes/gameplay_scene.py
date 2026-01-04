@@ -1,3 +1,5 @@
+import pygame
+from Game_code.scenes.pause_scene import PauseScene
 from Game_code.core.scene import Scene
 from Game_code.ship import Ship
 from Game_code.ship_controller import ShipController
@@ -15,6 +17,13 @@ class GameplayScene(Scene):
         
     def handle_events(self, events):
         self.input_handler.process_events(events)
+        
+        for event in events:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_p:
+                    self.scene_manager.push(
+                        PauseScene(self.screen, self.scene_manager, self)
+                    )
         
     def update(self):
         self.ship_controller.update_ship()

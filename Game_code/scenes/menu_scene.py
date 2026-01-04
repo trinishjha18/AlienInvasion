@@ -13,9 +13,7 @@ class MenuScene(Scene):
         for event in events:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
-                    self.scene_manager.change_scene(
-                        GameplayScene(self.screen, self.scene_manager)
-                    )
+                    self.scene_manager.load_scene('gameplay')
                     
     def update(self):
         pass
