@@ -13,7 +13,7 @@ class GameplayScene(Scene):
         
         self.ship = Ship(screen)
         self.input_handler = InputHandler()
-        self.ship_controller = ShipController(self.input_handler, self.screen, self.ship, GameConfigs.SHIP_SPEED.value)
+        self.ship_controller = ShipController(self.input_handler, self.ship, self.screen, GameConfigs.SHIP_SPEED.value)
         
     def handle_events(self, events):
         self.input_handler.process_events(events)
