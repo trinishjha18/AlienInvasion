@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 class Scene(ABC):
     def __init__(self, screen):
-        self.screem = screen
+        self.screen = screen
 
     @abstractmethod
     def handle_events(self, events):

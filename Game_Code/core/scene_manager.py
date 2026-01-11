@@ -1,6 +1,6 @@
 from Game_Code.core.scene import *
 
-class SceneManager(Scene):
+class SceneManager:
     def __init__(self, starting_scene):
         self.current_scene = starting_scene
 

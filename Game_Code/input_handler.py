@@ -7,15 +7,13 @@ class InputHandler:
         self.moving_up = False
         self.moving_down = False
 
-    def process_events(self):
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                return False
-            elif event.type == pygame.KEYDOWN:
+    def process_events(self, events):
+        for event in events:
+            if event.type == pygame.KEYDOWN:
                 self.key_down(event.key)
             elif event.type == pygame.KEYUP:
                 self.key_up(event.key)
-        return True
+
     
     def key_down(self, key):
         if key == pygame.K_RIGHT:
