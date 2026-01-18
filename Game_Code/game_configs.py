@@ -1,3 +1,4 @@
+import pygame
 from enum import Enum, IntEnum
 
 class GameConfigs(IntEnum):
@@ -14,3 +15,11 @@ class GameConfigs(IntEnum):
 class Colors(Enum):
     BLACK = (0, 0, 0)
     WHITE  = (255, 255, 255)
+
+
+class Backgrounds:
+    def __init__(self):
+        self.screen1 =  pygame.image.load("Images/Background2.png").convert()
+        self.level1_screen = pygame.transform.scale(self.screen1, (GameConfigs.SCREEN_WIDTH.value, GameConfigs.SCREEN_HEIGHT.value))
+        self.screen2 = pygame.image.load("Images/menu_screen_bg3.jpg").convert()
+        self.menu_screen = pygame.transform.scale(self.screen2, (GameConfigs.SCREEN_WIDTH.value, GameConfigs.SCREEN_HEIGHT.value))
