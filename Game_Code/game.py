@@ -14,9 +14,6 @@ class AlienInvasion:
         
         self.running = True
 
-        # self.scene_manager = SceneManager(MenuScene(self.screen, None))
-        # self.scene_manager.current_scene.scene_manager = self.scene_manager
-
         self.scene_manager = SceneManager(self.screen)
         self.scene_manager.load_scene("menu")
 

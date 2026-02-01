@@ -6,8 +6,10 @@ class InputHandler:
         self.moving_left = False
         self.moving_up = False
         self.moving_down = False
+        self.fire = False
 
     def process_events(self, events):
+        self.fire = False
         for event in events:
             if event.type == pygame.KEYDOWN:
                 self.key_down(event.key)
@@ -18,19 +20,21 @@ class InputHandler:
     def key_down(self, key):
         if key == pygame.K_RIGHT:
             self.moving_right = True
-        if key == pygame.K_LEFT:
+        elif key == pygame.K_LEFT:
             self.moving_left = True
-        if key == pygame.K_UP:
+        elif key == pygame.K_UP:
             self.moving_up = True
-        if key == pygame.K_DOWN:
+        elif key == pygame.K_DOWN:
             self.moving_down = True
+        elif key == pygame.K_SPACE:
+            self.fire = True
 
     def key_up(self, key):
         if key == pygame.K_RIGHT:
             self.moving_right = False
-        if key == pygame.K_LEFT:
+        elif key == pygame.K_LEFT:
             self.moving_left = False
-        if key == pygame.K_UP:
+        elif key == pygame.K_UP:
             self.moving_up = False
-        if key == pygame.K_DOWN:
+        elif key == pygame.K_DOWN:
             self.moving_down = False
