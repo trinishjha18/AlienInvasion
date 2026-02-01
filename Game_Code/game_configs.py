@@ -23,3 +23,6 @@ class Backgrounds:
         self.level1_screen = pygame.transform.scale(self.screen1, (GameConfigs.SCREEN_WIDTH.value, GameConfigs.SCREEN_HEIGHT.value))
         self.screen2 = pygame.image.load("Images/menu_screen_bg3.jpg").convert()
         self.menu_screen = pygame.transform.scale(self.screen2, (GameConfigs.SCREEN_WIDTH.value, GameConfigs.SCREEN_HEIGHT.value))
+        self.screen3 = pygame.image.load("Images/pause_screen_bg.jpg").convert()
+        self.pause_screen = pygame.transform.scale(self.screen3, (GameConfigs.SCREEN_WIDTH.value, GameConfigs.SCREEN_HEIGHT.value))
+

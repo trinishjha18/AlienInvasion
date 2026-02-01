@@ -1,5 +1,5 @@
 import pygame
-from Game_Code.game_configs import Colors
+from Game_Code.game_configs import Colors, Backgrounds, GameConfigs
 from Game_Code.core.scene import Scene
 
 
@@ -28,9 +28,12 @@ class PauseScene(Scene):
     def render(self):
         self.gameplay_scene.render()
 
-        overlay = pygame.Surface(self.screen.get_size(), pygame.SRCALPHA)
-        overlay.fill((0, 0, 0, 180))
-        self.screen.blit(overlay, (0, 0))
+        # overlay = pygame.Surface(self.screen.get_size(), pygame.SRCALPHA)
+        # overlay.fill((0, 0, 0, 180))
+        # self.screen.blit(overlay, (0, 0))
+        
+        self.screen.blit(Backgrounds().pause_screen, (GameConfigs.SCREEN_WIDTH_BACKGROUND.value, GameConfigs.SCREEN_HEIGHT_BACKGROUND.value))
+
 
         pause_text = self.font.render("PAUSED", True, Colors.WHITE.value)
         resume_text = self.small_font.render("Press P to resume || ESC for Menu", True, Colors.WHITE.value)
