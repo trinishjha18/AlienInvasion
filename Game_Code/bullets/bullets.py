@@ -11,7 +11,7 @@ class Bullet:
         self.rect.centerx = position.centerx
         self.rect.top = position.top
 
-        self.color = Colors.WHITE.value
+        self.color = Colors.ORANGE.value
 
         self.speed = 10
 
