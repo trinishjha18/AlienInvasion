@@ -7,6 +7,8 @@ from Game_Code.input_handler import InputHandler
 from Game_Code.game_configs import GameConfigs, Backgrounds
 from Game_Code.bullets.bullet_manager import BulletManager
 from Game_Code.aliens.alien_fleet_manager import AlienFleetManager
+from Game_Code.systems.score_system import ScoreSystem
+from Game_Code.systems.collision_system import CollisionSystem
 
 
 class GameplayScene(Scene):
@@ -20,6 +22,9 @@ class GameplayScene(Scene):
         
         self.bullet_manager = BulletManager(screen)
         self.alien_fleet = AlienFleetManager(screen)
+
+        self.score_system = ScoreSystem()
+        self.collision = CollisionSystem(self.bullet_manager, self.alien_fleet, self.score_system)
 
     def handle_events(self, events):
         self.input_handler.process_events(events)
@@ -36,6 +41,7 @@ class GameplayScene(Scene):
         self.ship_controller.update_ship()
         self.bullet_manager.update()
         self.alien_fleet.update()
+        self.collision.update()
 
     def render(self):
         self.screen.blit(Backgrounds().level1_screen, (GameConfigs.SCREEN_WIDTH_BACKGROUND.value, GameConfigs.SCREEN_HEIGHT_BACKGROUND.value))
