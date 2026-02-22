@@ -14,3 +14,6 @@ class ShipController:
             self.ship.image_rect.centery -= self.ship_speed
         if self.input_handler.moving_down and self.ship.image_rect.bottom < self.screen.get_rect().bottom:
             self.ship.image_rect.centery += self.ship_speed 
+    
+    def increase_speed(self, speed):
+        self.ship_speed += speed

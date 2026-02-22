@@ -6,6 +6,9 @@ class CollisionSystem:
         self.bullet_manager: BulletManager = bullet_manager
         self.alien_fleet_manager = alien_fleet_manager
         self.score_system = score_system
+        
+    def set_alien_fleet(self, alien_fleet_manager):
+        self.alien_fleet_manager = alien_fleet_manager
 
     def update(self):
         bullets = self.bullet_manager.bullets
