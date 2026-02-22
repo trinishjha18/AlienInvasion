@@ -9,6 +9,7 @@ from Game_Code.bullets.bullet_manager import BulletManager
 from Game_Code.aliens.alien_fleet_manager import AlienFleetManager
 from Game_Code.systems.score_system import ScoreSystem
 from Game_Code.systems.collision_system import CollisionSystem
+from Game_Code.ui.hud import HUD
 
 
 class GameplayScene(Scene):
@@ -25,6 +26,8 @@ class GameplayScene(Scene):
 
         self.score_system = ScoreSystem()
         self.collision = CollisionSystem(self.bullet_manager, self.alien_fleet, self.score_system)
+        
+        self.hud = HUD(screen, self.score_system)
 
     def handle_events(self, events):
         self.input_handler.process_events(events)
@@ -48,3 +51,4 @@ class GameplayScene(Scene):
         self.bullet_manager.draw()
         self.ship.blitme()
         self.alien_fleet.draw()
+        self.hud.draw()
