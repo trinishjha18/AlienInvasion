@@ -2,13 +2,15 @@ from Game_Code.aliens.alien import Alien
 
 
 class AlienFleetManager:
-    def __init__(self, screen):
+    def __init__(self, screen, level):
         self.screen = screen
         self.aliens = []
 
+        self.level = level
+
         # If positive value, move to the right, if negative go left
         self.direction = 1
-        self.speed = 2
+        self.speed = 2 + level
         self.drop_distance = 30
 
         self._create_fleet()
@@ -26,7 +28,7 @@ class AlienFleetManager:
             for column in range(columns):
                 x = start_x + (column * spacing_x)
                 y = start_y + (row * spacing_y)
-                self.aliens.append(Alien(self.screen, x, y))
+                self.aliens.append(Alien(self.screen, x, y, self.level))
 
     def update(self):
         edge_hit = False
