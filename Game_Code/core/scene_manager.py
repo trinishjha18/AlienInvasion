@@ -1,6 +1,7 @@
 from Game_Code.scenes.gameplay_scene import GameplayScene
 from Game_Code.scenes.menu_scene import MenuScene
 from Game_Code.core.scene import *
+from Game_Code.scenes.game_over_scene import GameOverScene
 
 class SceneManager:
     def __init__(self, starting_scene):
@@ -19,12 +20,15 @@ class SceneManager:
         self.pop()
         self.push(new_scene)
 
-    def load_scene(self, name):
+    def load_scene(self, name, score=None, level=None):
         if name.lower() == "menu":
             self.replace(MenuScene(self.current_scene, self))
 
         elif name.lower() == "gameplay":
             self.replace(GameplayScene(self.current_scene, self))
+            
+        elif name.lower() == "gameover":
+            self.replace(GameOverScene(self.current_scene, self, score, level))
 
     def handle_events(self, events):
         # self.current_scene.handle_events(events)

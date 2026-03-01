@@ -27,7 +27,7 @@ class GameplayScene(Scene):
         self.alien_fleet = AlienFleetManager(screen, self.level_system.level)
 
         self.score_system = ScoreSystem()
-        self.collision = CollisionSystem(self.bullet_manager, self.alien_fleet, self.score_system)
+        self.collision = CollisionSystem(self.bullet_manager, self.alien_fleet, self.score_system, self.ship)
         
         self.hud = HUD(screen, self.score_system, self.level_system)
 
@@ -46,8 +46,12 @@ class GameplayScene(Scene):
         self.ship_controller.update_ship()
         self.bullet_manager.update()
         self.alien_fleet.update()
-        self.collision.update()
         
+        game_over = self.collision.update()
+        if game_over:
+            self.scene_manager.load_scene("gameover", self.score_system.score, self.level_system.level)
+            return
+           
         if not self.alien_fleet.aliens:
             self.level_system.next_level()
             self.ship_controller.increase_speed(1)

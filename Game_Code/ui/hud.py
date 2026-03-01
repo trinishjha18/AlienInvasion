@@ -1,5 +1,5 @@
-from Game_Code.game_configs import Colors
 import pygame
+from Game_Code.game_configs import Colors
 
 class HUD:
     def __init__(self, screen, score_system, level_system):
