@@ -23,10 +23,12 @@ class GameplayScene(Scene):
         self.ship_controller = ShipController(self.input_handler, self.ship, self.screen, GameConfigs.SHIP_SPEED.value)
         
         self.level_system = LevelSystem()
+        self.score_system = ScoreSystem()
+
         self.bullet_manager = BulletManager(screen)
         self.alien_fleet = AlienFleetManager(screen, self.level_system.level)
+        # self.alien_fleet = AlienFleetManager(screen, 1)
 
-        self.score_system = ScoreSystem()
         self.collision = CollisionSystem(self.bullet_manager, self.alien_fleet, self.score_system)
 
         self.hud = HUD(self.screen, self.score_system, self.level_system)
@@ -47,8 +49,13 @@ class GameplayScene(Scene):
         self.bullet_manager.update()
         self.alien_fleet.update()
         self.collision.update()
+        # self.hud.update(self.alien_fleet.level)
+        
         if not self.alien_fleet:
             self.level_system.next_level()
+            self.alien_fleet = AlienFleetManager(self.screen, self.level_system)
+            self.collision.set_alien_fleet(self.alien_fleet)
+
 
     def render(self):
         self.screen.blit(Backgrounds().level1_screen, (GameConfigs.SCREEN_WIDTH_BACKGROUND.value, GameConfigs.SCREEN_HEIGHT_BACKGROUND.value))

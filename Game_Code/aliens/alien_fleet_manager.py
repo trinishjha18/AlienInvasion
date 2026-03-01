@@ -10,8 +10,8 @@ class AlienFleetManager:
 
         # If positive value, move to the right, if negative go left
         self.direction = 1
-        self.speed = 2 + level
         self.drop_distance = 30
+        self.speed = 2 + self.level
 
         self._create_fleet()
 
@@ -21,8 +21,8 @@ class AlienFleetManager:
         spacing_x = 120
         spacing_y = 120
 
-        rows = 3
-        columns = 8
+        rows = 1
+        columns = 1
 
         for row in range(rows):
             for column in range(columns):
@@ -36,12 +36,18 @@ class AlienFleetManager:
         for alien in self.aliens:
             alien.update(self.speed * self.direction, 0)
             if alien.rect.right >= self.screen.get_rect().right or alien.rect.left <= 0:
-                edge_hit = True
+                edge_hit = True            
         
         if edge_hit:
             self.direction *= -1
             for alien in self.aliens:
                 alien.update(0, self.drop_distance)
+        
+        # if not self.aliens:
+        #     self.level += 1
+        #     self._create_fleet()
+        #     self.speed += self.level
+
 
     def draw(self):
         for alien in self.aliens:
