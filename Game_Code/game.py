@@ -3,7 +3,6 @@ from Game_Code.game_configs import GameConfigs
 from Game_Code.core.scene_manager import SceneManager
 from Game_Code.scenes.menu_scene import MenuScene
 
-
 class AlienInvasion:
     def __init__(self):
         # pygame setup

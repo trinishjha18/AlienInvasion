@@ -1,6 +1,5 @@
 from Game_Code.aliens.alien import Alien
 
-
 class AlienFleetManager:
     def __init__(self, screen, level):
         self.screen = screen
@@ -8,7 +7,6 @@ class AlienFleetManager:
 
         self.level = level
 
-        # If positive value, move to the right, if negative go left
         self.direction = 1
         self.drop_distance = 30
         self.speed = 2 + self.level
@@ -21,8 +19,8 @@ class AlienFleetManager:
         spacing_x = 120
         spacing_y = 120
 
-        rows = 1
-        columns = 1
+        rows = 3
+        columns = 8
 
         for row in range(rows):
             for column in range(columns):
@@ -42,12 +40,6 @@ class AlienFleetManager:
             self.direction *= -1
             for alien in self.aliens:
                 alien.update(0, self.drop_distance)
-        
-        # if not self.aliens:
-        #     self.level += 1
-        #     self._create_fleet()
-        #     self.speed += self.level
-
 
     def draw(self):
         for alien in self.aliens:

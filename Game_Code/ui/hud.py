@@ -10,9 +10,6 @@ class HUD:
 
         self.font = pygame.font.SysFont(None, 36)
 
-    # def update(self, level_system):
-    #     self.level = level
-
     def draw(self):
         score_text = f"Score: {self.score_system.score}"
         level_text = f"Level: {self.level_system.level}"

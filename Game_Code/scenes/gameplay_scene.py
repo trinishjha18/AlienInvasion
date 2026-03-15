@@ -27,7 +27,6 @@ class GameplayScene(Scene):
 
         self.bullet_manager = BulletManager(screen)
         self.alien_fleet = AlienFleetManager(screen, self.level_system.level)
-        # self.alien_fleet = AlienFleetManager(screen, 1)
 
         self.collision = CollisionSystem(self.bullet_manager, self.alien_fleet, self.score_system)
 
@@ -49,11 +48,10 @@ class GameplayScene(Scene):
         self.bullet_manager.update()
         self.alien_fleet.update()
         self.collision.update()
-        # self.hud.update(self.alien_fleet.level)
         
-        if not self.alien_fleet:
+        if not self.alien_fleet.aliens:
             self.level_system.next_level()
-            self.alien_fleet = AlienFleetManager(self.screen, self.level_system)
+            self.alien_fleet = AlienFleetManager(self.screen, self.level_system.level)
             self.collision.set_alien_fleet(self.alien_fleet)
 
 

@@ -11,12 +11,10 @@ class GameConfigs(IntEnum):
     SCREEN_HEIGHT_BACKGROUND = 0
     SHIP_SPEED = 5
 
-
 class Colors(Enum):
     BLACK = (0, 0, 0)
     WHITE  = (255, 255, 255)
     ORANGE = (255, 165, 0)
-
 
 class Backgrounds:
     def __init__(self):
